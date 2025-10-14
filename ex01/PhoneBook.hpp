@@ -6,9 +6,12 @@
 /*   By: stempels <stempels@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 10:37:39 by stempels          #+#    #+#             */
-/*   Updated: 2025/10/14 13:26:37 by stempels         ###   ########.fr       */
+/*   Updated: 2025/10/14 15:14:29 by stempels         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef PHONEBOOK_HPP
+# define PHONEBOOK_HPP
 
 #include <iostream>
 #include <iomanip>
@@ -16,15 +19,17 @@
 #include <limits>
 #include "Contact.hpp"
 
-#ifndef PHONEBOOK_HPP
-# define PHONEBOOK_HPP
 class	PhoneBook {
+	/*__Constructor______*/
+	public:
+		PhoneBook():last_added(-1), stored(0){
+			std::cout << "PhoneBook created\n" << std::endl;
+		}
 	/*__Data member______*/
 	private:
-		int		last_added = -1;
-		int		stored = 0;
+		int		last_added;
+		int		stored;
 		Contact	contacts[8];
-
 	/*__Function member__*/
 	public:
 		void		add();
@@ -32,5 +37,10 @@ class	PhoneBook {
 		void		display(int index);
 		std::string	trunc_str(std::string str);
 		std::string	readcin();
+	/*__Destructor_______*/
+	public:
+		~PhoneBook(){
+			std::cout << "PhoneBook destroyed\n" << std::endl;
+		}
 };
 #endif
