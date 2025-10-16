@@ -6,7 +6,7 @@
 /*   By: stempels <stempels@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 08:26:03 by stempels          #+#    #+#             */
-/*   Updated: 2025/10/14 13:27:57 by stempels         ###   ########.fr       */
+/*   Updated: 2025/10/16 10:47:36 by stempels         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ void	PhoneBook::add(){
 	str = readcin();
 	contacts[index].setLastName(str);
 	std::cout << "Insert contact phone number: ";
-	str = readcin();
-	contacts[index].setPhoneNbr(str);
+	while (!contacts[index].setPhoneNbr(readcin()))
+		std::cout << "Insert contact phone number: ";
 	std::cout << "Insert contact secret: "; 
 	str = readcin();
 	contacts[index].setSecret(str);

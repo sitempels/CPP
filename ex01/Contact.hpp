@@ -6,19 +6,20 @@
 /*   By: stempels <stempels@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 10:40:12 by stempels          #+#    #+#             */
-/*   Updated: 2025/10/14 15:16:56 by stempels         ###   ########.fr       */
+/*   Updated: 2025/10/16 11:16:26 by stempels         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-
 #ifndef CONTACT_HPP
 # define CONTACT_HPP
+
+#include <iostream>
+#include <regex>
+
 class	Contact {
 	/*__Constructor______*/
 	public:
 		Contact(){
-			std::cout << "Contact created\n" << std::endl;
 		}
 	/*___Data member_______*/
 	private:
@@ -31,10 +32,10 @@ class	Contact {
 	/*___Function member___*/
 	public:
 	/*__Setters_*/
+		int			setPhoneNbr(std::string str);
 		void		setIndex(int nbr);
 		void		setName(std::string str);
 		void		setLastName(std::string str);
-		void		setPhoneNbr(std::string str);
 		void		setSecret(std::string str);
 	/*__Getters_*/
 		int			getIndex() const;
@@ -45,7 +46,6 @@ class	Contact {
 	/*__Destructor_______*/
 	public:
 		~Contact(){
-			std::cout << "Contact destroyed\n" << std::endl;
 		}
 };
 #endif
