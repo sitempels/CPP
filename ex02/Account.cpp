@@ -6,7 +6,7 @@
 /*   By: stempels <stempels@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 12:37:57 by stempels          #+#    #+#             */
-/*   Updated: 2025/10/16 17:01:44 by stempels         ###   ########.fr       */
+/*   Updated: 2025/10/17 09:21:58 by stempels         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ Account::Account(int deposit){
 	_amount = deposit;
 	_totalAmount += deposit;
 	_displayTimestamp();
+	_nbDeposits = 0;
+	_nbWithdrawals = 0;
 	std::cout << "index:" << _accountIndex << ';'
 			<< "amount:" << _amount << ';'
 			<< "created" << std::endl;
@@ -41,7 +43,7 @@ void	Account::_displayTimestamp(void){
 
 	std::time(&timestamp);
 	local = std::localtime(&timestamp);
-	std::cout << '[' << std::put_time(local, "%Y%m%d_%H%M%S") << ']';
+	std::cout << '[' << std::put_time(local, "%Y%m%d_%H%M%S") << "] ";
 	return ;
 }
 
@@ -71,15 +73,15 @@ void	Account::displayAccountsInfos(void){
 }
 
 void	Account::makeDeposit(int deposit){
+	_displayTimestamp();
+	std::cout << "index:" << _accountIndex << ';'
+			<< "p_amount:" << _amount << ';'
+			<< "deposit:" << deposit << ';';
 	_amount += deposit;
 	_totalAmount += deposit;
 	_nbDeposits++;
 	_totalNbDeposits++;
-	_displayTimestamp();
-	std::cout << "index:" << _accountIndex << ';'
-			<< "p_amount:" << _amount << ';'
-			<< "deposit:" << deposit << ';'
-			<< "amount:" << _amount << ';'
+	std::cout << "amount:" << _amount << ';'
 			<< "nb_deposits:" << _nbDeposits << std::endl;
 	return ;
 }
