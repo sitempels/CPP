@@ -11,14 +11,13 @@ void	Contact::setName(std::string str){
 void	Contact::setLastName(std::string str){
 	l_name = str;
 }
-int	Contact::setPhoneNbr(std::string str){
-	std::regex reg_nbr("^((\\+[0-9]{2})|([0-9]{2}))[/|\\.]*[0-9]{3}[\\.]*[0-9]{2}[\\.]*[0-9]{2}");
-	if (std::regex_match(str, reg_nbr)){
-		phone_nbr = str;
-		return (1);
-	}
-	std::cout << "Invalid phone number." << std::endl;
-	return (0);
+
+void	Contact::setNickname(std::string str){
+	n_name = str;
+}
+
+void	Contact::setPhoneNbr(std::string str){
+	phone_nbr = str;
 }
 
 void	Contact::setSecret(std::string str){
@@ -35,6 +34,10 @@ std::string	Contact::getName() const{
 
 std::string	Contact::getLastName() const{
 	return (l_name);
+}
+
+std::string	Contact::getNickname() const{
+	return (n_name);
 }
 
 std::string	Contact::getPhoneNbr() const{

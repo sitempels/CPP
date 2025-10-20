@@ -6,7 +6,7 @@
 /*   By: stempels <stempels@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 12:37:57 by stempels          #+#    #+#             */
-/*   Updated: 2025/10/17 09:21:58 by stempels         ###   ########.fr       */
+/*   Updated: 2025/10/20 16:50:05 by stempels         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,14 @@ void	Account::_displayTimestamp(void){
 
 	std::time(&timestamp);
 	local = std::localtime(&timestamp);
-	std::cout << '[' << std::put_time(local, "%Y%m%d_%H%M%S") << "] ";
+	std::cout << '[' << local->tm_year + 1900 
+		<< local->tm_mon + 1 
+		<< local->tm_mday 
+		<< '_' << local->tm_hour 
+		<< local->tm_min;
+	if (local->tm_sec < 10)
+		std::cout << '0';
+	std::cout << local->tm_sec << "] ";
 	return ;
 }
 

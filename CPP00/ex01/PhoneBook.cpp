@@ -6,7 +6,7 @@
 /*   By: stempels <stempels@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 08:26:03 by stempels          #+#    #+#             */
-/*   Updated: 2025/10/16 10:47:36 by stempels         ###   ########.fr       */
+/*   Updated: 2025/10/20 16:16:14 by stempels         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,12 @@ void	PhoneBook::add(){
 	std::cout << "Insert contact last name: ";
 	str = readcin();
 	contacts[index].setLastName(str);
+	std::cout << "Insert contact nickname: ";
+	str = readcin();
+	contacts[index].setNickname(str);
 	std::cout << "Insert contact phone number: ";
-	while (!contacts[index].setPhoneNbr(readcin()))
-		std::cout << "Insert contact phone number: ";
+	str = readcin();
+	contacts[index].setPhoneNbr(str);
 	std::cout << "Insert contact secret: "; 
 	str = readcin();
 	contacts[index].setSecret(str);
@@ -45,14 +48,16 @@ void	PhoneBook::search(){
 		std::cout << "No contact found !\n" << std::endl;
 		return ;
 	}
-	std::cout << std::setw(12) << "Index |"
-			<< std::setw(13) << "Name |"
-			<< std::setw(11) << "Last Name"
+	std::cout << std::setw(10) << "Index" << " | "
+			<< std::setw(10) << "Name" << " | "
+			<< std::setw(10) << "Last Name" << " | "
+			<< std::setw(10) << "Nickname"
 			<< std::endl;
 	for (int i = 0; i < stored; i++){
 		std::cout << std::setw(10) << contacts[i].getIndex() << " | "
 				<< std::setw(10) << trunc_str(contacts[i].getName()) << " | "
-				<< std::setw(10) << trunc_str(contacts[i].getLastName())
+				<< std::setw(10) << trunc_str(contacts[i].getLastName()) << " | "
+				<< std::setw(10) << trunc_str(contacts[i].getNickname())
 				<< std::endl;
 	}
 	std::cout << "\nEnter an index: ";
@@ -82,11 +87,12 @@ std::string	PhoneBook::readcin(){
 }
 
 void	PhoneBook::display(int index){
-	std::cout << contacts[index].getName() + "\n"
-	<< contacts[index].getLastName() + "\n"
-	<< contacts[index].getPhoneNbr() + "\n"
-	<< contacts[index].getSecret() + "\n"
-	<< std::endl;
+	std::cout << "Name: " << contacts[index].getName() + "\n"
+		<< "Last name: " << contacts[index].getLastName() + "\n"
+		<< "Nickname: " << contacts[index].getNickname() + "\n"
+		<< "Phone number: " << contacts[index].getPhoneNbr() + "\n"
+		<< "Dark secret: "<< contacts[index].getSecret() + "\n"
+		<< std::endl;
 }
 
 std::string	PhoneBook::trunc_str(std::string str){

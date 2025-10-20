@@ -6,18 +6,18 @@
 #    By: user <user@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/14 10:47:36 by stempels          #+#    #+#              #
-#    Updated: 2025/10/16 13:38:03 by stempels         ###   ########.fr        #
+#    Updated: 2025/10/20 13:30:59 by stempels         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 #
-NAME_PROJECT = account_manager 
+NAME_PROJECT = phonebook 
 NAME = $(NAME_PROJECT)
 debug: NAME = $(addprefix debug_, $(NAME_PROJECT))
 TYPE = EXEC
 #----------------------------COMPILER------------------------------------------#
 CXX = c++
 debug: CXX = g++ 
-CXXFLAGS = -Wall -Wextra -Werror
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 debug: CXXFLAGS = -g3
 CPPFLAGS = $(INC_FLAG)
 #
@@ -27,7 +27,7 @@ CPPFLAGS = $(INC_FLAG)
 #----------------------------SRC-----------------------------------------------#
 SRC_DIR = .
 #
-SRCS = main Account
+SRCS = main Contact PhoneBook 
 #
 SRC = $(addprefix $(SRC_DIR)/, $(addsuffix .cpp, $(SRCS))) 
 #

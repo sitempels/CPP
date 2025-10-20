@@ -6,7 +6,7 @@
 #    By: user <user@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/14 10:47:36 by stempels          #+#    #+#              #
-#    Updated: 2025/09/01 08:01:25 by stempels         ###   ########.fr        #
+#    Updated: 2025/10/20 13:30:43 by stempels         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 #
@@ -17,7 +17,7 @@ TYPE = EXEC
 #----------------------------COMPILER------------------------------------------#
 CXX = c++
 debug: CXX = g++ 
-CXXFLAGS = -Wall -Wextra -Werror
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 debug: CCFLAGS = -g3
 CPPFLAGS = $(INC_FLAG)
 #
