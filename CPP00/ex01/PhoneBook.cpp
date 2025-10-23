@@ -6,7 +6,7 @@
 /*   By: stempels <stempels@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 08:26:03 by stempels          #+#    #+#             */
-/*   Updated: 2025/10/20 16:16:14 by stempels         ###   ########.fr       */
+/*   Updated: 2025/10/22 11:05:48 by stempels         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,15 +55,17 @@ void	PhoneBook::search(){
 			<< std::endl;
 	for (int i = 0; i < stored; i++){
 		std::cout << std::setw(10) << contacts[i].getIndex() << " | "
-				<< std::setw(10) << trunc_str(contacts[i].getName()) << " | "
-				<< std::setw(10) << trunc_str(contacts[i].getLastName()) << " | "
-				<< std::setw(10) << trunc_str(contacts[i].getNickname())
+				<< std::setw(10) << truncStr(contacts[i].getName()) << " | "
+				<< std::setw(10) << truncStr(contacts[i].getLastName()) << " | "
+				<< std::setw(10) << truncStr(contacts[i].getNickname())
 				<< std::endl;
 	}
 	std::cout << "\nEnter an index: ";
 	while (!(std::cin >> index) || (index < 0 || index > (stored - 1))){
-		if (std::cin.eof())
+		if (std::cin.eof()){
+			std::cout << std::endl;
 			exit(0);
+		}
 		std::cout << "Invalid index.\nEnter a valid index: ";
 		std::cin.clear();
 		std::cin.ignore(10000, '\n');
@@ -77,11 +79,9 @@ std::string	PhoneBook::readcin(){
 
 	while (!(std::cin >> str)) {
 		if (std::cin.eof()) {
+			std::cout << std::endl;
 			exit(0);
 		}
-		std::cout << "Invalid index.\nEnter a valid index: ";
-		std::cin.clear();
-		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 	}
 	return (str);
 }
@@ -95,7 +95,7 @@ void	PhoneBook::display(int index){
 		<< std::endl;
 }
 
-std::string	PhoneBook::trunc_str(std::string str){
+std::string	PhoneBook::truncStr(std::string str){
 	if (str.size() > 10)
 		return (str.substr(0, 9) + '.');
 	return (str);

@@ -6,7 +6,7 @@
 /*   By: stempels <stempels@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 10:37:39 by stempels          #+#    #+#             */
-/*   Updated: 2025/10/20 16:08:13 by stempels         ###   ########.fr       */
+/*   Updated: 2025/10/22 10:46:13 by stempels         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ class	PhoneBook {
 		void		add();
 		void		search();
 		void		display(int index);
-		std::string	trunc_str(std::string str);
+		std::string	truncStr(std::string str);
 		std::string	readcin();
 	/*__Destructor_______*/
 	public:

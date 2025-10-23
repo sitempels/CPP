@@ -1,26 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   randomChump.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: stempels <stempels@student.s19.be>         +#+  +:+       +#+        */
+/*   By: stempels <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/20 10:26:42 by stempels          #+#    #+#             */
-/*   Updated: 2025/10/23 12:03:43 by stempels         ###   ########.fr       */
+/*   Created: 2025/10/23 12:06:28 by stempels          #+#    #+#             */
+/*   Updated: 2025/10/23 12:06:54 by stempels         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-Zombie::Zombie(std::string zombieName){
-	name = zombieName;
-}
+void	randomChump(std::string name) {
+	Zombie	zombie(name);
 
-Zombie::~Zombie(){
-	std::cout << name << " has been purged !" << std::endl;
-}
-
-void	Zombie::annonce(void){
-	std::cout << name << ": BraiiiiiiinnnzzzZ..." << std::endl;
+	zombie.annonce();
 	return ;
 }
