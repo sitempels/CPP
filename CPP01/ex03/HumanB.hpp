@@ -6,7 +6,7 @@
 /*   By: stempels <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/23 17:34:34 by stempels          #+#    #+#             */
-/*   Updated: 2025/10/23 18:01:33 by stempels         ###   ########.fr       */
+/*   Updated: 2025/10/24 07:44:46 by stempels         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class	HumanB {
 		void	setWeapon(Weapon &weapon);
 	private:
 		const std::string	name;
-		Weapon				weapon;
+		const Weapon		*weapon;
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: stempels <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/23 17:35:11 by stempels          #+#    #+#             */
-/*   Updated: 2025/10/23 18:11:44 by stempels         ###   ########.fr       */
+/*   Updated: 2025/10/24 07:47:27 by stempels         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,13 @@ int	main(void) {
 		bob.attack();
 	}
 	{
-		Weapon	club = Weapon("crude spiked club");
+		Weapon	club = Weapon("Axe");
 
-		HumanB jim("jim");
+		HumanB jim("Jim");
 		jim.attack();
 		jim.setWeapon(club);
 		jim.attack();
-		club.setType("Polearm");
+		club.setType("Lance");
 		jim.attack();
 	}
 	return (0);
