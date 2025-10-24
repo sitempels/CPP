@@ -6,11 +6,11 @@
 #    By: user <user@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/14 10:47:36 by stempels          #+#    #+#              #
-#    Updated: 2025/10/24 07:52:25 by stempels         ###   ########.fr        #
+#    Updated: 2025/10/24 13:04:40 by stempels         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 #
-NAME_PROJECT = fighter
+NAME_PROJECT = customsed
 NAME = $(NAME_PROJECT)
 debug: NAME = $(addprefix debug_, $(NAME_PROJECT))
 TYPE = EXEC
@@ -27,7 +27,7 @@ CPPFLAGS = $(INC_FLAG)
 #----------------------------SRC-----------------------------------------------#
 SRC_DIR = .
 #
-SRCS = main Weapon HumanA HumanB
+SRCS = main customReplace
 #
 SRC = $(addprefix $(SRC_DIR)/, $(addsuffix .cpp, $(SRCS))) 
 #
