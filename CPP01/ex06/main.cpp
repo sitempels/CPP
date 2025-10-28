@@ -1,33 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Harl.hpp                                           :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: stempels <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/24 16:09:48 by stempels          #+#    #+#             */
-/*   Updated: 2025/10/28 14:14:54 by stempels         ###   ########.fr       */
+/*   Created: 2025/10/24 16:36:54 by stempels          #+#    #+#             */
+/*   Updated: 2025/10/28 15:24:21 by stempels         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HARL_HPP
-# define HARL_HPP
+#include "Harl.hpp"
 
-#include <iostream>
-#include <string>
-
-class Harl {
-	public:
-		Harl();
-		~Harl();
-
-		void	complain(std::string level);
-
-	private:
-		void	debug(void);
-		void	info(void);
-		void	warning(void);
-		void	error(void);
-};
-
-#endif
+int main(int argc, char **argv) {
+	if (argc != 2)
+		return (1);
+	Harl	harl2;
+	std::string	level = argv[1];
+	harl2.complain(level);
+	return (0);
+}

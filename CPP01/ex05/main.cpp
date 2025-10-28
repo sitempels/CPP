@@ -6,17 +6,25 @@
 /*   By: stempels <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 16:36:54 by stempels          #+#    #+#             */
-/*   Updated: 2025/10/24 16:51:41 by stempels         ###   ########.fr       */
+/*   Updated: 2025/10/28 15:32:06 by stempels         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Harl.hpp"
 
-int main(int argc, char **argv) {
-	if (argc != 1)
-		return (1);
+int main(void) {
 	Harl	harl2;
-	std::string	level = argv[1];
+	std::string	level = "INFO";
+	harl2.complain(level);
+	level = "WARNING";
+	harl2.complain(level);
+	level = "DEBUG";
+	harl2.complain(level);
+	level = "ERROR";
+	harl2.complain(level);
+	level = "TEST";
+	harl2.complain(level);
+	level = "WARNING";
 	harl2.complain(level);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: stempels <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 16:09:10 by stempels          #+#    #+#             */
-/*   Updated: 2025/10/28 15:30:50 by stempels         ###   ########.fr       */
+/*   Updated: 2025/10/28 15:29:57 by stempels         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ Harl::~Harl(){
 
 void	Harl::complain(std::string entry_level) {
 	int			level = 0;
-	void		(Harl::*complain_level)(void) = NULL;	
 	std::string	level_reference[] = {"DEBUG", "INFO", "WARNING", "ERROR"};
 	while (level < 4)
 	{
@@ -35,21 +34,17 @@ void	Harl::complain(std::string entry_level) {
 	level++;
 	switch (level) {
 		case 1: //"DEBUG"
-			complain_level = &Harl::debug;
-			break ;
+			Harl::debug();
 		case 2: //"INFO"
-			complain_level = &Harl::info;
-			break ;
+			Harl::info();
 		case 3: //"WARNING"
-			complain_level = &Harl::warning;
-			break ;
+			Harl::warning();
 		case 4: //"ERROR"
-			complain_level = &Harl::error;
+			Harl::error();
 			break ;
 		default:
 			return ;
 	}
-	(this->*complain_level)();
 	return ;
 }
 
