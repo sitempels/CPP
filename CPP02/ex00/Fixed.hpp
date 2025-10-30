@@ -6,7 +6,7 @@
 /*   By: stempels <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 15:37:39 by stempels          #+#    #+#             */
-/*   Updated: 2025/10/29 17:36:51 by stempels         ###   ########.fr       */
+/*   Updated: 2025/10/30 15:00:00 by stempels         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,18 +19,18 @@
 class Fixed	{
 	public:
 	/*Constructor-Copy Constructor-Destructor*/
-		Fixed() : frac_bit(8);
-		Fixed(const &old_fixed);
+		Fixed();
+		Fixed(const Fixed& source);
 		~Fixed();
 	/*Assignement Operator*/
-		Fixed	operator=(const Fixed &old_fixed);
-	/*Member function*/
-		int		getRawBits(void);
+		Fixed&	operator=(const Fixed& source);
+	/*Function*/
+		int		getRawBits(void) const;
 		void	setRawBits(int const raw);
 	private:
-	/*truc*/
+	/*Attributes*/
 		int					raw_bits;
-		static const int	frac_bit;
+		static const int	frac_bit = 8;
 };
 
 #endif
