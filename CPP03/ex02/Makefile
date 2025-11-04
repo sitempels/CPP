@@ -10,7 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 #
-NAME_PROJECT = claptrap
+NAME_PROJECT = fragtrap
 NAME = $(NAME_PROJECT)
 debug: NAME = $(addprefix debug_, $(NAME_PROJECT))
 TYPE = EXEC
@@ -27,7 +27,7 @@ CPPFLAGS = $(INC_FLAG)
 #----------------------------SRC-----------------------------------------------#
 SRC_DIR = .
 #
-SRCS = main ClapTrap
+SRCS = main ClapTrap ScavTrap FragTrap
 #
 SRC = $(addprefix $(SRC_DIR)/, $(addsuffix .cpp, $(SRCS))) 
 #

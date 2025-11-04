@@ -38,9 +38,10 @@ class ClapTrap {
 		int			getAtk() const;
 		void		setHp(int amount);
 		void		setMp(int amount);
+		void		setAtk(int amount);
 		
-	private:
-		/*Private Attributes*/
+	protected:
+		/*Protected Attributes*/
 		std::string	name;
 		int			hp;
 		int			mp;

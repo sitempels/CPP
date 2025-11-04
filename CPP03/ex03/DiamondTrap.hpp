@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
+/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: stempels <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,41 +10,28 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CLAPTRAP_HPP
-# define CLAPTRAP_HPP
+#ifndef DIAMONDTRAP_HPP
+# define DIAMONDTRAP_HPP
 
 /*Includes*/
-# include <iostream>
+# include "ScavTrap.hpp"
+# include "FragTrap.hpp"
 
-class ClapTrap {
+class DiamondTrap : public ScavTrap, public FragTrap {
 	public:
 		/*Constructor-Copy Constructor-Destructor*/
-		ClapTrap(std::string name);
-		ClapTrap(const ClapTrap& source);
-		~ClapTrap();
+		DiamondTrap(std::string name);
+		DiamondTrap(const DiamondTrap& source);
+		~DiamondTrap();
 
 		/*Overloaded Operators*/
-		ClapTrap&	operator=(const ClapTrap& source);
+		DiamondTrap&	operator=(const DiamondTrap& source);
 
 		/*Public methods*/
-		void	attack(const std::string& target);
-		void	takeDamage(unsigned int amount);
-		void	beRepaired(unsigned int	amount);
+		void	whoAmI() const;
 
-		/*Getter-Setter*/
-		std::string	getName() const;
-		int			getHp() const;
-		int			getMp() const;
-		int			getAtk() const;
-		void		setHp(int amount);
-		void		setMp(int amount);
-		
 	private:
-		/*Private Attributes*/
 		std::string	name;
-		int			hp;
-		int			mp;
-		int			atk;
 };
 
 #endif
