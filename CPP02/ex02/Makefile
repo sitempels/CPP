@@ -6,11 +6,11 @@
 #    By: user <user@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/14 10:47:36 by stempels          #+#    #+#              #
-#    Updated: 2025/10/23 12:07:33 by stempels         ###   ########.fr        #
+#    Updated: 2025/11/04 08:23:43 by stempels         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 #
-NAME_PROJECT = zombie
+NAME_PROJECT = fixedFull
 NAME = $(NAME_PROJECT)
 debug: NAME = $(addprefix debug_, $(NAME_PROJECT))
 TYPE = EXEC
@@ -27,7 +27,7 @@ CPPFLAGS = $(INC_FLAG)
 #----------------------------SRC-----------------------------------------------#
 SRC_DIR = .
 #
-SRCS = main Zombie newZombie randomChump
+SRCS = main Fixed
 #
 SRC = $(addprefix $(SRC_DIR)/, $(addsuffix .cpp, $(SRCS))) 
 #

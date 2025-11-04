@@ -6,7 +6,7 @@
 /*   By: stempels <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 15:37:39 by stempels          #+#    #+#             */
-/*   Updated: 2025/10/30 15:24:38 by stempels         ###   ########.fr       */
+/*   Updated: 2025/11/04 08:19:29 by stempels         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,22 +15,30 @@
 
 /*Include*/
 #include <iostream>
+#include <cmath>
 
 class Fixed	{
 	public:
 	/*Constructor-Copy Constructor-Destructor*/
 		Fixed();
+		Fixed(const int input);
+		Fixed(const float input);
 		Fixed(const Fixed& source);
-		virtual	~Fixed();
-	/*Assignement Operator*/
+		~Fixed();
+	/*Overloaded Operators*/
 		Fixed&	operator=(const Fixed& source);
-	/*Function*/
+	/*Public Methods*/
+		float	toFloat(void) const;
+		int		toInt(void) const;
+	/*Getter - Setter*/
 		int		getRawBits(void) const;
 		void	setRawBits(int const raw);
 	private:
-	/*Attributes*/
+	/*Private Attributes*/
 		int					raw_bits;
 		static const int	frac_bit = 8;
 };
+
+std::ostream&	operator<<(std::ostream& ostream, const Fixed& source);
 
 #endif
