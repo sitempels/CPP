@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ScavTrap.cpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: stempels <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/11/05 12:58:36 by stempels          #+#    #+#             */
+/*   Updated: 2025/11/05 14:31:30 by stempels         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 
@@ -5,22 +16,22 @@ ScavTrap::ScavTrap(std::string new_name): ClapTrap(new_name) {
 	setHp(100);
 	setMp(50);
 	setAtk(20);
-	std::cout << "Alive sbire ! I'm " << name << " and Alive !" << std::endl;
+	std::cout << "SCAVCONSTR: Alive sbire ! I'm " << name << " and Alive !" << std::endl;
+	std::cout << hp << "\t" << mp << "\t" << atk << std::endl;
 }
 
 ScavTrap::ScavTrap(const ScavTrap& source) : ClapTrap(source.getName()){
 	*this = source;
-	std::cout << "Loook sbire ! A new mini me !" << std::endl;
+	std::cout << "SCAVCOPY: Loook sbire ! A new mini me !" << std::endl;
 }
 
 ScavTrap::~ScavTrap() {
-	std::cout << "I, " << getName() << ", am dead and it's your fault sbire !" << std::endl;
+	std::cout << "SCAVDESTR: I, " << getName() << ", am dead and it's your fault sbire !" << std::endl;
 }
 
 ScavTrap&	ScavTrap::operator=(const ScavTrap& source) {
 	if (this == &source)
 		return (*this);
-	//name = source.getName();
 	hp = source.getHp();
 	mp = source.getMp();
 	atk = source.getAtk();

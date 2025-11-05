@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   DiamondTrap.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: stempels <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/04 14:01:52 by stempels          #+#    #+#             */
-/*   Updated: 2025/11/04 16:15:00 by stempels         ###   ########.fr       */
+/*   Updated: 2025/11/05 14:23:25 by stempels         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@
 class DiamondTrap : public ScavTrap, public FragTrap {
 	public:
 		/*Constructor-Copy Constructor-Destructor*/
-		DiamondTrap(std::string name);
+		DiamondTrap();
+		DiamondTrap(std::string name = "dftUnit");
 		DiamondTrap(const DiamondTrap& source);
 		~DiamondTrap();
 
@@ -29,6 +30,8 @@ class DiamondTrap : public ScavTrap, public FragTrap {
 
 		/*Public methods*/
 		void	whoAmI() const;
+		/*Getter*/
+		std::string	getName() const;
 
 	private:
 		std::string	name;

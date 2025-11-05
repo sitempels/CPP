@@ -1,27 +1,47 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   DiamondTrap.cpp                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: stempels <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/11/05 13:09:24 by stempels          #+#    #+#             */
+/*   Updated: 2025/11/05 14:29:55 by stempels         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "DiamondTrap.hpp"
 
-DiamondTrap::DiamondTrap(std::string new_name): ClapTrap(new_name + "_clap_name") {
-	name = ClapTrap::name;
-	hp = FragTrap::hp;
-	mp = ScavTrap::mp;
-	atk = FragTrap::atk;
-	std::cout << "Alive sbire ! I'm " << name << " and Alive !" << std::endl;
+DiamondTrap::DiamondTrap() {
+	std::cout << "DiamondTrap default constructor" << std::endl;
+	std::cout << hp << "\t" << mp << "\t" << atk << std::endl;
 }
 
-DiamondTrap::DiamondTrap(const DiamondTrap& source) : ClapTrap(source.getName()){
+DiamondTrap::DiamondTrap(std::string new_name): ClapTrap(new_name + "_clap_name") {
+	name = new_name;
+	setHp(FragTrap::hp);
+	setMp(ScavTrap::mp);
+	setAtk(FragTrap::atk);
+	std::cout << "DIAMCONSTR: Make place fooooor " << name << " !" << std::endl;
+	std::cout << hp << "\t" << mp << "\t" << atk << std::endl;
+}
+
+DiamondTrap::DiamondTrap(const DiamondTrap& source) : ClapTrap(source), ScavTrap(source), FragTrap(source) {
 	*this = source;
-	std::cout << "Loook sbire ! A new mini me !" << std::endl;
+	std::cout << "DIAMCONSTR: Loook sbire ! A new mini me !" << std::endl;
 }
 
 DiamondTrap::~DiamondTrap() {
-	std::cout << "I, " << getName() << ", am dead and it's your fault sbire !" << std::endl;
+	std::cout << "DIAMDESTR: RIP " << getName() << std::endl;
+}
+
+std::string	DiamondTrap::getName() const {
+	return (name);
 }
 
 DiamondTrap&	DiamondTrap::operator=(const DiamondTrap& source) {
 	if (this == &source)
 		return (*this);
-	//name = source.getName();
 	hp = source.getHp();
 	mp = source.getMp();
 	atk = source.getAtk();
@@ -29,6 +49,6 @@ DiamondTrap&	DiamondTrap::operator=(const DiamondTrap& source) {
 }
 
 void	DiamondTrap::whoAmI() const {
-	std::cout << "I'm " << name < ", and my ClapTrap identity is " << ClapTrap::name << " !!" << std::endl;
+	std::cout << "I'm " << name << ", and my ClapTrap identity is " << ClapTrap::name << " !!" << std::endl;
 	return ;
 }

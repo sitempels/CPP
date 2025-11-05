@@ -6,7 +6,7 @@
 /*   By: stempels <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/04 14:01:52 by stempels          #+#    #+#             */
-/*   Updated: 2025/11/04 16:15:00 by stempels         ###   ########.fr       */
+/*   Updated: 2025/11/05 14:27:28 by stempels         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,20 +19,20 @@
 class ClapTrap {
 	public:
 		/*Constructor-Copy Constructor-Destructor*/
-		ClapTrap(std::string name);
+		ClapTrap(std::string name = "dftUnit");
 		ClapTrap(const ClapTrap& source);
-		~ClapTrap();
+		virtual ~ClapTrap();
 
 		/*Overloaded Operators*/
 		ClapTrap&	operator=(const ClapTrap& source);
 
 		/*Public methods*/
-		void	attack(const std::string& target);
-		void	takeDamage(unsigned int amount);
-		void	beRepaired(unsigned int	amount);
+		virtual	void	attack(const std::string& target);
+		void			takeDamage(unsigned int amount);
+		void			beRepaired(unsigned int	amount);
 
 		/*Getter-Setter*/
-		std::string	getName() const;
+		virtual std::string	getName() const;
 		int			getHp() const;
 		int			getMp() const;
 		int			getAtk() const;

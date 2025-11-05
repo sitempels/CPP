@@ -6,7 +6,7 @@
 /*   By: stempels <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/04 14:01:52 by stempels          #+#    #+#             */
-/*   Updated: 2025/11/04 16:15:00 by stempels         ###   ########.fr       */
+/*   Updated: 2025/11/05 14:25:58 by stempels         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,19 @@
 /*Includes*/
 # include "ClapTrap.hpp"
 
-class ScavTrap : virtual public ClapTrap {
+class ScavTrap : public virtual ClapTrap {
 	public:
 		/*Constructor-Copy Constructor-Destructor*/
-		ScavTrap(std::string name);
+	//	ScavTrap();
+		ScavTrap(std::string name = "dftunit");
 		ScavTrap(const ScavTrap& source);
-		~ScavTrap();
+		virtual ~ScavTrap();
 
 		/*Overloaded Operators*/
 		ScavTrap&	operator=(const ScavTrap& source);
 
 		/*Public methods*/
-		virtual void	attack(const std::string& target);
+		void	attack(const std::string& target);
 		void	guardGate(void) ;
 
 	private:

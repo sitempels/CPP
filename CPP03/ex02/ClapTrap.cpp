@@ -1,17 +1,29 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ClapTrap.cpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: stempels <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/11/05 12:59:03 by stempels          #+#    #+#             */
+/*   Updated: 2025/11/05 14:27:13 by stempels         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
 ClapTrap::ClapTrap(std::string new_name): name(new_name), hp(10), mp(10), atk(0) {
-	std::cout << "Behold sbire ! I'm " << name << " !" << std::endl;
+	std::cout << "CLAPCONSTR: Behold sbire ! I'm " << name << " !" << std::endl;
+	std::cout << hp << "\t" << mp << "\t" << atk << std::endl;
 }
 
 ClapTrap::ClapTrap(const ClapTrap& source) {
 	*this = source;
-	std::cout << "Behold sbire ! A new MEEEE !" << std::endl;
+	std::cout << "CLAPCOPY: Behold sbire ! A new MEEEE !" << std::endl;
 }
 
 ClapTrap::~ClapTrap() {
-	std::cout << "Sbire ! HEEEELPP " << getName() << " ! AaaAargh !" << std::endl;
+	std::cout << "CLAPDESTR: Sbire ! HEEEELPP " << getName() << " ! AaaAargh !" << std::endl;
 }
 
 ClapTrap&	ClapTrap::operator=(const ClapTrap& source) {

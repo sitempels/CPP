@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ScavTrap.cpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: stempels <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/11/05 12:58:36 by stempels          #+#    #+#             */
+/*   Updated: 2025/11/05 14:38:52 by stempels         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 
@@ -20,7 +31,6 @@ ScavTrap::~ScavTrap() {
 ScavTrap&	ScavTrap::operator=(const ScavTrap& source) {
 	if (this == &source)
 		return (*this);
-	//name = source.getName();
 	hp = source.getHp();
 	mp = source.getMp();
 	atk = source.getAtk();
