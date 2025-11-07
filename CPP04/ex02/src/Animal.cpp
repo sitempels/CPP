@@ -1,48 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.cpp                                            :+:      :+:    :+:   */
+/*   Animal.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: stempels <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/05 15:27:18 by stempels          #+#    #+#             */
-/*   Updated: 2025/11/07 12:45:59 by stempels         ###   ########.fr       */
+/*   Created: 2025/11/05 14:51:08 by stempels          #+#    #+#             */
+/*   Updated: 2025/11/05 15:52:58 by stempels         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Dog.hpp"
+#include "Animal.hpp"
 
-Dog::Dog() : Animal("Dog") {
-	brain = new Brain();
-	std::cout << "Dog default constructor called" << std::endl;
+Animal::Animal(std::string type) : type(type) {
+	std::cout << "Animal default constructor called" << std::endl;
 	std::cout << "Type = " << getType() << std::endl;
 }
 
-Dog::Dog(const Dog& source) : Animal() {
+Animal::Animal(const Animal& source) {
 	*this = source;
-	std::cout << "Dog copy constructor called" << std::endl;
+	std::cout << "Animal copy constructor called" << std::endl;
 }
 
-Dog::~Dog() {
-	delete(brain);
-	std::cout << "Dog destructor called" << std::endl;
+Animal::~Animal() {
+	std::cout << "Animal destructor called" << std::endl;
 }
 
-Dog&	Dog::operator=(const Dog& source) {
+Animal&	Animal::operator=(const Animal& source) {
 	if (this == &source)
 		return (*this);
 	type = source.getType();
-	delete(brain);
-	brain = new Brain();
-	*brain = *(source.brain);
 	return (*this);
 }
 
-void	Dog::makeSound() const {
-	std::cout << "WOOF ! WoOOooOF !" <<std::endl;
+std::string	Animal::getType() const {
+	return (type);
+}
+
+void	Animal::setType(std::string new_type) {
+	type = new_type;
 	return ;
 }
 
-Brain*	Dog::getBrain() const {
-	return (brain);
+void	Animal::makeSound() const {
+	std::cout << "Some indistinct noises !" << std::endl;
+	return ;
 }

@@ -6,7 +6,7 @@
 /*   By: stempels <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 14:48:27 by stempels          #+#    #+#             */
-/*   Updated: 2025/11/07 12:48:08 by stempels         ###   ########.fr       */
+/*   Updated: 2025/11/07 13:20:13 by stempels         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ class	Animal {
 		Animal&	operator=(const Animal& source);
 
 		/*Public Member Functions*/
-		virtual void	makeSound() const ;
+		virtual void	makeSound() const = 0;
 		std::string		getType() const ;
 		void			setType(std::string new_type);
 		virtual Brain*	getBrain() const = 0;

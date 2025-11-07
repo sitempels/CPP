@@ -1,48 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.cpp                                            :+:      :+:    :+:   */
+/*   Brain.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: stempels <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 15:27:18 by stempels          #+#    #+#             */
-/*   Updated: 2025/11/07 12:45:59 by stempels         ###   ########.fr       */
+/*   Updated: 2025/11/05 19:09:52 by stempels         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Dog.hpp"
+#include "Brain.hpp"
 
-Dog::Dog() : Animal("Dog") {
-	brain = new Brain();
-	std::cout << "Dog default constructor called" << std::endl;
-	std::cout << "Type = " << getType() << std::endl;
+Brain::Brain() {
+	std::cout << "Brain default constructor called" << std::endl;
 }
 
-Dog::Dog(const Dog& source) : Animal() {
+Brain::Brain(const Brain& source) {
 	*this = source;
-	std::cout << "Dog copy constructor called" << std::endl;
+	std::cout << "Brain copy constructor called" << std::endl;
 }
 
-Dog::~Dog() {
-	delete(brain);
-	std::cout << "Dog destructor called" << std::endl;
+Brain::~Brain() {
+	std::cout << "Brain destructor called" << std::endl;
 }
 
-Dog&	Dog::operator=(const Dog& source) {
+Brain&	Brain::operator=(const Brain& source) {
 	if (this == &source)
 		return (*this);
-	type = source.getType();
-	delete(brain);
-	brain = new Brain();
-	*brain = *(source.brain);
+	for (int i = 0; i < 100; i++)
+		ideas[i] = source.ideas[i];
 	return (*this);
 }
 
-void	Dog::makeSound() const {
-	std::cout << "WOOF ! WoOOooOF !" <<std::endl;
-	return ;
+std::string Brain::getIdeas(int pos) const {
+	return (ideas[pos]);
 }
 
-Brain*	Dog::getBrain() const {
-	return (brain);
+void	Brain::setIdeas(int pos, std::string idea) {
+	ideas[pos] = idea;
+	return ;
 }

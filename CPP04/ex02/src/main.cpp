@@ -6,7 +6,7 @@
 /*   By: stempels <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 15:35:34 by stempels          #+#    #+#             */
-/*   Updated: 2025/11/07 13:18:11 by stempels         ###   ########.fr       */
+/*   Updated: 2025/11/07 13:21:23 by stempels         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include "Cat.hpp"
 
 int	main(void) {
+//	Animal	Show_that_doesnt_work;
 	const int		nbr_animals = 10;
 	const Animal*	animals[nbr_animals];
 
