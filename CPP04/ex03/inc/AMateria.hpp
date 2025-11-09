@@ -1,44 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   AMateria.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: stempels <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/05 14:48:27 by stempels          #+#    #+#             */
-/*   Updated: 2025/11/07 12:48:08 by stempels         ###   ########.fr       */
+/*   Created: 2025/11/07 13:40:45 by stempels          #+#    #+#             */
+/*   Updated: 2025/11/07 14:48:37 by stempels         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-# define ANIMAL_HPP
+#ifndef AMATERIA_HPP
+# define AMATERIA_HPP
 
 /*Includes*/
 # include <iostream>
 # include <string>
-# include "Brain.hpp"
+# include "ICharacter.hpp"
 
-class	Animal {
+class AMateria {
 	public:
-		/*Constructor-Copy constructor-Destructor*/
-		Animal(std::string type = "Animal");
-		Animal(const Animal& source);
-		virtual ~Animal();
+		/*Constructor-Copy Contructor-Destructor*/
+		AMateria(std::string const& type = "Default");
+		AMateria(const AMateria& source);
+		virtual	~AMateria();
 
 		/*Overloaded Operators*/
-		Animal&	operator=(const Animal& source);
+		AMateria&	operator=(const AMateria& source);
 
-		/*Public Member Functions*/
-		virtual void	makeSound() const ;
+		/*Public Methods*/
+		virtual AMateria* 	clone() const = 0;
+		virtual void		use(ICharacter& target);
 
 		/*Getter-Setter*/
-		std::string		getType() const ;
-		void			setType(std::string new_type);
-		virtual Brain*	getBrain() const = 0;
+		std::string const&	getType() const;
 
 	protected:
 		/*Protected Attributes*/
-		std::string	type;
+		const std::string	type;
+
 };
 
 #endif

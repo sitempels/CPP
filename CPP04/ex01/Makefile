@@ -36,7 +36,6 @@ OBJ_DIR = obj
 OBJ = $(patsubst $(SRC_DIR)%.cpp, $(OBJ_DIR)%.o, $(SRC))
 #
 #----------------------------LIB-----------------------------------------------#
-#
 LIB_DIR = inc
 #
 INC_FLAG = -I $(LIB_DIR)
