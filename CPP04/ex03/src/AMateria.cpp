@@ -9,7 +9,7 @@ AMateria::AMateria(std::string const& type)
 
 /*Copy Contructor*/
 AMateria::AMateria(const AMateria& copy_from) {
-	*this = copy_from;
+	type = copy_from.type;
 	std::cout << "Copy Constructor called: AMateria" << std::endl;
 }
 
@@ -21,9 +21,8 @@ AMateria::~AMateria() {
 
 /*Overloaded Operators*/
 AMateria&	AMateria::operator=(const AMateria& source) {
-	if (this == &source)
-		return (*this);
-	*this = source;
+	if (this != &source)
+		type = source.type;
 	return (*this);
 }
 

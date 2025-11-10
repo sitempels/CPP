@@ -22,14 +22,17 @@ class Character : virtual public ICharacter {
 		Character&	operator=(const Character& source);
 		
 		/*Public Methods*/
-		std::string const&	getName() const ;
 		void	equip(AMateria* m) ;
 		void	unequip(int idx) ;
 		void	use(int idx, ICharacter& target) ;
 
+		/*Getter-Setter*/
+		std::string const&	getName() const ;
+		AMateria*	getMateria(int idx);
+
 	private:
 		/*Private Attributes*/
-		const std::string	name;
+		std::string	name;
 		AMateria			*inventory[MAX_MATERIA];
 };
 

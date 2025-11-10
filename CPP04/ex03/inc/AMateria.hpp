@@ -37,8 +37,7 @@ class AMateria {
 
 	protected:
 		/*Protected Attributes*/
-		const std::string	type;
-
+		std::string	type;
 };
 
 #endif

@@ -17,16 +17,13 @@ Ice::~Ice() {
 }
 
 Ice&	Ice::operator=(const Ice& source) {
-	if (this == &source)
-		return (*this);
-	*this = source;
+	if (this != &source)
+		type = source.type;
 	return (*this);
 }
 
 Ice*	Ice::clone() const {
-	Ice	*new_ice = new Ice(*this);
-//	*new_ice = *this;
-	return (new_ice);
+	return (new Ice());
 }
 
 void	Ice::use(ICharacter& target) {

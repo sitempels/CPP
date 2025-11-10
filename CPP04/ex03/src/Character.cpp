@@ -25,20 +25,38 @@ Character::Character(const std::string name)
 Character::Character(const Character& source)
 	: ICharacter() {
 		std::cout << "Copy Constructor called: Character" << std::endl;
-	*this = source;
+	name = source.name;
+	for (int i = 0; i < MAX_MATERIA; i++) {
+		if (source.inventory[i] == NULL)
+			inventory[i] = NULL;
+		else
+			inventory[i] = source.inventory[i]->clone();
+	}
 }
 
 /*Destructor*/
 Character::~Character() {
 		std::cout << "Destructor called: Character" << std::endl;
+	for (int i = 0; i < MAX_MATERIA; i++) {
+		if (inventory[i])
+			delete(inventory[i]);
+	}
 }
 
 /*Overloaded Operators*/
 Character&	Character::operator=(const Character& source) {
-	if (this == &source)
-		return (*this);
-	for (int i = 0; i < MAX_MATERIA; i++)
-		inventory[i] = source.inventory[i];
+	name = source.name;
+	if (this != &source) {
+		for (int i = 0; i < MAX_MATERIA; i++) {
+			if (inventory[i])
+				delete(inventory[i]);
+			if (source.inventory[i] == NULL)
+				inventory[i] = NULL;
+			else
+				inventory[i] = source.inventory[i]->clone();
+			inventory[i] = source.inventory[i];
+		}
+	}
 	return (*this);
 }
 
@@ -47,8 +65,10 @@ void	Character::equip(AMateria* m) {
 	int	i = 0;
 	while (inventory[i])
 		i++;
-	if (i == MAX_MATERIA)
+	if (i == MAX_MATERIA) {
 		std::cout << "Inventory full, please unequip first" << std::endl;
+		delete(m);
+	}
 	else {
 		inventory[i] = m;
 		std::cout << m->getType() << " Materia equiped in slot "
@@ -58,14 +78,18 @@ void	Character::equip(AMateria* m) {
 }
 
 void	Character::unequip(int idx) {
-	std::cout << inventory[idx]->getType() << " Materia unequiped in slot "
-				<< idx + 1 << std::endl;
-	inventory[idx] = NULL;
+	if (-1 < idx && idx < MAX_MATERIA && inventory[idx]) {
+		std::cout << inventory[idx]->getType() << " Materia unequiped in slot "
+					<< idx + 1 << std::endl;
+		inventory[idx] = NULL;
+	}
+	else
+		std::cout << "Nothing equiped there" << std::endl;
 	return ;
 }
 
 void	Character::use(int idx, ICharacter& target) {
-	if (idx < MAX_MATERIA) {
+	if (-1 < idx && idx < MAX_MATERIA && inventory[idx]) {
 		std::cout << getName() + " ";
 		inventory[idx]->use(target);
 	}
@@ -75,4 +99,10 @@ void	Character::use(int idx, ICharacter& target) {
 /*Getter*/
 std::string const&	Character::getName() const {
 	return (name);
+}
+
+AMateria*	Character::getMateria(int idx) {
+	if (-1 < idx && idx < MAX_MATERIA)
+		return (inventory[idx]);
+	return (NULL);
 }

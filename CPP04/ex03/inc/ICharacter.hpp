@@ -21,6 +21,7 @@ class	ICharacter {
 
 		/*Getter-Setter*/
 		virtual std::string const&	getName() const = 0;
+		virtual AMateria*	getMateria(int idx) = 0;
 };
 
 #endif

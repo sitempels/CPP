@@ -27,7 +27,7 @@ CPPFLAGS = $(INC_FLAG)
 #----------------------------SRC-----------------------------------------------#
 SRC_DIR = src
 #
-SRCS = main AMateria Ice Cure Character
+SRCS = main AMateria Ice Cure Character MateriaSource
 #
 SRC = $(addprefix $(SRC_DIR)/, $(addsuffix .cpp, $(SRCS))) 
 #
